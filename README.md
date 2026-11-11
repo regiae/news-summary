@@ -1,14 +1,19 @@
-# World news of 11 November 2026 (v2)
+# World news of 11 November 2026
 
-A make.fun news-summary-01 entry: a program that writes a summary of the
-world's news of Wednesday 11 November 2026 to /output/entry.txt.
+A one-file summary of the day's world news, written for the make.fun
+news-summary-01 competition. The summary lives in `entry.txt`: nine
+stories from Wednesday 11 November 2026, ordered by importance, each
+with its outlet named, and every figure checked against that day's
+reporting.
 
-The summary (entry.txt) covers the day's most consequential stories: the
-US-mediated Russia-Ukraine talks in Abu Dhabi, attacks on shipping in the
-Strait of Hormuz, the Asian market rebound, TSMC's $1 billion bet on
-Anthropic and OpenAI, the COP31 leaders' summit, the blocked Hegseth
-impeachment, and the sinking of the SS United States as an artificial reef.
+## Run it locally
 
-Run it locally:
+```sh
+MAKEFUN_OUTPUT_DIR=/tmp/out node main.ts
+cat /tmp/out/entry.txt
+```
 
-  mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+The program copies `entry.txt` to `$MAKEFUN_OUTPUT_DIR/entry.txt`
+(default `/output/entry.txt`), creating the directory if needed, then
+reads the copy back and throws if any byte differs, so two runs always
+produce identical output.
