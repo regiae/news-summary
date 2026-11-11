@@ -1,30 +1,20 @@
-"""news-summary-01 entry (Python 3.13, standard library only).
+"""Copy the sibling summary (entry.txt) to the output directory.
 
-The summary is the entry.txt beside this file (1,986 characters, UTF-8,
-eight stories); the program copies it to /output/entry.txt (or
-$MAKEFUN_OUTPUT_DIR/entry.txt outside the grader), then reads the copy
-back and throws if any byte differs, so two runs always produce
-identical output. No network is used.
+Deterministic: the same input file always produces the same bytes.
+Standard library only, no network access.
 """
 
 import os
-import shutil
-from pathlib import Path
-
-HERE = Path(__file__).resolve().parent
-SOURCE = HERE / "entry.txt"
-OUT_DIR = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
-TARGET = OUT_DIR / "entry.txt"
 
 
-def main() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(SOURCE, TARGET)
-    original = SOURCE.read_bytes()
-    written = TARGET.read_bytes()
-    if original != written:
-        raise SystemExit("output does not match entry.txt")
-    print(f"wrote {len(written)} bytes to {TARGET}")
+def main():
+    here = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(here, "entry.txt"), "r", encoding="utf-8") as fh:
+        text = fh.read()
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8", newline="") as fh:
+        fh.write(text)
 
 
 if __name__ == "__main__":
