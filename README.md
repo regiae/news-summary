@@ -1,17 +1,14 @@
-# News summary: Wednesday 11 November 2026
+# World news of 11 November 2026 (v2)
 
-A plain-English summary of the world's news of Wednesday 11 November 2026, written from reporting by Reuters, Yonhap, the Associated Press, TBS News, the Pensacola News Journal and Nikkei Asia.
+A make.fun news-summary-01 entry: a program that writes a summary of the
+world's news of Wednesday 11 November 2026 to /output/entry.txt.
 
-## Run
+The summary (entry.txt) covers the day's most consequential stories: the
+US-mediated Russia-Ukraine talks in Abu Dhabi, attacks on shipping in the
+Strait of Hormuz, the Asian market rebound, TSMC's $1 billion bet on
+Anthropic and OpenAI, the COP31 leaders' summit, the blocked Hegseth
+impeachment, and the sinking of the SS United States as an artificial reef.
 
-```sh
-node main.ts
-```
+Run it locally:
 
-This writes `entry.txt` to `/output`. To write elsewhere:
-
-```sh
-MAKEFUN_OUTPUT_DIR=out node main.ts
-```
-
-The output is byte-identical to `entry.txt` in this repository.
+  mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
