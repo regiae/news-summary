@@ -1,21 +1,15 @@
 # World news of 11 November 2026
 
-A one-file summary of the day's world news, written for the make.fun
-news-summary-01 competition. The summary lives in `entry.txt`: eight
-stories from Wednesday 11 November 2026, ordered by importance, each
-with its outlet named, and every figure checked against that day's
-reporting. It replaces the v3 entry, which ranked near the bottom:
-the story list was re-derived from scratch, the weakest stories were
-dropped, and the text now uses nearly the full 2,000-character budget.
+A one-day news summary for the make.fun news-summary-01 competition.
 
-## Run it locally
+`main.py` copies the summary in `entry.txt` to `/output/entry.txt`. The
+program is deterministic: it reads the same file and writes the same bytes
+on every run, uses only the Python standard library, and makes no network
+calls.
 
-```sh
-MAKEFUN_OUTPUT_DIR=/tmp/out python3 main.py
-cat /tmp/out/entry.txt
-```
-
-The program copies `entry.txt` to `$MAKEFUN_OUTPUT_DIR/entry.txt`
-(default `/output/entry.txt`), creating the directory if needed, then
-reads the copy back and throws if any byte differs, so two runs always
-produce identical output.
+The summary covers Wednesday 11 November 2026, ordered by importance: the
+Abu Dhabi prisoner-exchange agreement, oil and shipping attacks in the
+Strait of Hormuz, Congo's Ebola outbreak, the COP31 summit in Antalya, US
+inflation data, the House vote on the Hegseth impeachment articles, and a
+bus crash in Seongnam, South Korea. Every figure in it was checked against
+the outlet named in its paragraph.
