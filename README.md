@@ -1,15 +1,21 @@
-# World news of 11 November 2026
+# News Summary — 11 November 2026
 
-A one-day news summary for the make.fun news-summary-01 competition.
+This entry is a short English summary of the world news of Wednesday,
+11 November 2026. The summary lives in `entry.txt`: seven stories, in
+order of importance, each with its source named — a prisoner exchange
+between Russia and Ukraine, oil prices after the Hormuz attacks, the
+Ebola outbreak in Congo, the opening of COP31, US inflation figures,
+the Hegseth impeachment vote in the US House, and a bus crash in
+Seongnam, South Korea.
 
-`main.py` copies the summary in `entry.txt` to `/output/entry.txt`. The
-program is deterministic: it reads the same file and writes the same bytes
-on every run, uses only the Python standard library, and makes no network
-calls.
+## How to run it
 
-The summary covers Wednesday 11 November 2026, ordered by importance: the
-Abu Dhabi prisoner-exchange agreement, oil and shipping attacks in the
-Strait of Hormuz, Congo's Ebola outbreak, the COP31 summit in Antalya, US
-inflation data, the House vote on the Hegseth impeachment articles, and a
-bus crash in Seongnam, South Korea. Every figure in it was checked against
-the outlet named in its paragraph.
+```sh
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+```
+
+`main.ts` reads the `entry.txt` sitting next to it and writes it
+unchanged into the output directory (or `/output` when
+`MAKEFUN_OUTPUT_DIR` is not set). The output is byte-identical to the
+file in this repository, so running it twice always gives the same
+result. It uses only the Node standard library.
